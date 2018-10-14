@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const artistsController = require('./controllers/artists');
+const artistsController = require('./controllers/artistController');
 require('./db/db');
 
 //middleware
