@@ -7,7 +7,7 @@ require('./db/db');
 
 //middleware
 app.use(bodyParser.urlencoded({extended: false}));
-app,.use(methodOverride('_method'));
+app.use(methodOverride('_method'));
 app.use('/artists', artistsController);
 
 app.get('/',(req, res) => {
