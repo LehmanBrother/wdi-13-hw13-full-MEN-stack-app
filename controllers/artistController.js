@@ -48,7 +48,7 @@ router.get('/:index', (req, res) => {
 
 //delete route
 router.delete('/:index', (req, res) => {
-	Factions.findByIdAndRemove(req.params.index, (err, response) => {
+	Artists.findByIdAndRemove(req.params.index, (err, response) => {
 		if(err) {
 			console.log(err);
 		} else {
@@ -58,6 +58,28 @@ router.delete('/:index', (req, res) => {
 	})
 })
 
+//edit route
+router.get('/:index/edit', (req, res) => {
+	Artists.findById(req.params.index, (err, foundArtist) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('edit.ejs', {
+				artist: foundArtist
+			})
+		}
+	})
+})
 
+//update route
+router.put('/:index', (req, res) => {
+	Artists.findByIdAndUpdate(req.params.index, req.body, (err, updatedArtist) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.redirect('/artists');
+		}
+	})
+})
 
 module.exports = router;
