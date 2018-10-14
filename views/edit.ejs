@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Page</title>
+</head>
+<body>
+	<h1>Artist Editor</h1>
+	<form method="POST" action="/artists/<%=artist.id%>?_method=PUT">
+		Name: <input type="text" name="name" value="<%=artist.name%>"><br>
+		Song: <input type="text" name="goodSong" value="<%=artist.goodSong%>"><br>
+		Image: <input type="text" name="img" value="<%=artist.img%>"><br>
+		<input type="submit" name="" value="Submit Edits">
+	</form>
+
+</body>
+</html>
