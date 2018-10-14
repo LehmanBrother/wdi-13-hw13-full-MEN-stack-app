@@ -32,4 +32,32 @@ router.post('/',(req, res) => {
 	})
 })
 
+//show route
+router.get('/:index', (req, res) => {
+	Artists.findById(req.params.index, (err, foundArtist) => {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log(foundArtist);
+			res.render('show.ejs', {
+				artist: foundArtist
+			})
+		}
+	})
+})
+
+//delete route
+router.delete('/:index', (req, res) => {
+	Factions.findByIdAndRemove(req.params.index, (err, response) => {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log(response);
+			res.redirect('/artists');
+		}
+	})
+})
+
+
+
 module.exports = router;
